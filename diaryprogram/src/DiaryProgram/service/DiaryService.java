@@ -1,0 +1,61 @@
+package DiaryProgram.service;
+
+
+import DiaryProgram.vo.Member;
+
+
+public interface DiaryService {
+	
+	/*@author 박영준
+	 * 회원가입 메서드*/
+	void signUp();
+	
+	/*@author 박영준
+	 * 로그인 메서드*/
+	void signIn() throws Exception;
+	
+	/*@author 박영준
+	 * 로그인 메서드*/
+	void findAccount();	
+	
+	/*@author 박영준
+	 * 아이디 매칭*/
+	Member matchId(String id);
+	
+	/*@author 박영준
+	 * 이름 매칭*/
+	Member matchName(String name); 
+	
+	/*@author 조윤정
+	 * 친구신청보내기*/
+	void addFriend();
+	
+	/*@author 조윤정
+	 * 친구들 조회기능*/
+	void friendList();
+	
+	/*@author 조윤정
+	 * 친구삭제기능*/
+	void removeFriend();
+	
+	/*@author 조윤정
+	 * 친구 요청 확인*/
+	void checkRequest() throws Exception;
+	
+	/*@author 조윤정
+	 * 이 달의 성취도 조회*/
+	void monthly();
+	
+	/*@author 안병수 <br>
+	 * 계획삭제 메서드*/
+	void removePlan();
+	
+	/*@author 안병수 <br>
+	 * 계획시작 메서드*/
+	void carryPlan() throws InterruptedException;
+	
+	/*@author 안병수 <br>
+	 * 계획수정 메서드*/
+	void planChange();
+
+}

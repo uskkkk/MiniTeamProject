@@ -1,0 +1,113 @@
+package DiaryProgram.util;
+
+import java.util.Scanner;
+
+/* @author 박영준 */
+public class MemberCommon {
+	
+static Scanner scanner = new Scanner(System.in);
+	
+	/*@author 박영준
+	 * nextInt - 공백, 문자 0 이하 숫자 예외 처리 */
+	public static int nextInt(String text) {		
+		while(true) {
+			int checkInt = 0;
+			try {			
+				int tmp = Integer.parseInt(nextLine(text));
+				if(tmp <= 0) {
+					System.out.println("0이하의 값은 입력할 수 없습니다.");
+					continue;
+				} 				
+				checkInt = tmp;
+				
+			} catch(Exception e) {
+				System.out.println("공백 또는 문자는 사용할 수 없습니다.");
+				continue;
+			}
+			return checkInt;
+		}
+	}
+	
+	
+	/*@author 박영준
+	 * nextlong - 공백, 문자 0 이하 숫자 예외 처리 */
+	public static long nextLong(String text) {
+		while(true) {
+			long checkLong;
+			try {
+				System.out.print(text);
+				checkLong = (int)(Long.parseLong(scanner.nextLine()) * 100) / 100L;
+				if(checkLong <= 0) {
+					System.out.println("0 이하의 값은 입력할 수 없습니다.");
+					continue;
+				}
+			} catch(Exception e) {
+				System.out.println("공백 또는 문자는 사용할 수 없습니다.");
+				continue;
+			}
+			return checkLong;
+		}
+	}
+	
+	
+	
+	/*@author 박영준
+	 * nextDouble - 공백, 문자 예외 처리 */
+	public static double nextDouble(String text) {
+		while(true) {
+			double checkDouble = 0;
+			try {
+				System.out.print(text);
+				checkDouble = (int)(Double.parseDouble(scanner.nextLine()) * 100) / 100d;
+				if(checkDouble <= 0) {
+					System.out.println("0 이하의 값은 입력할 수 없습니다.");
+					continue;
+				}
+			} catch(Exception e) {
+				System.out.println("공백 또는 문자는 사용할 수 없습니다.");
+				continue;
+			}
+			return checkDouble;
+		}
+	}
+		
+	
+	/*@author 박영준
+	 * 글자수 제한, 공백 체크 */
+	public static String noEmptyLimitStr(String text, int number) { 
+		while(true) {		
+			String checkStr = nextLine(text);
+			if(checkStr.trim().isEmpty()) {
+				System.out.println("아무것도 입력하지 않았습니다");
+				continue;
+			} else if(checkStr.length() ==0) {
+				System.out.println("아무것도 입력하지 않았습니다");
+				continue;
+			} else if(checkStr.length()>number) {
+				System.out.println("입력가능한 글자수를 초과하였습니다.(" + number + "글자 이하)");
+				continue;
+			} else if(checkStr != checkStr.replaceAll(" ", "")) {
+				System.out.println("문자 사이에 공백이 있습니다");
+				continue;
+			}
+			return checkStr;
+		}
+	}
+	
+	/*@author 조윤정
+	 * */
+	public static int nextInt(String text,int from,int to) throws Exception{
+		int val=Integer.parseInt(nextLine(text));
+		if(val<from||val>to) {
+			throw new NumberFormatException();
+		}
+		return val;
+	}
+	
+	public static String nextLine(String text) {
+		System.out.print(text);
+		return scanner.nextLine();
+	}
+	
+	
+}

@@ -1,0 +1,44 @@
+package DiaryProgram.ex;
+
+import DiaryProgram.service.DiaryService;
+import DiaryProgram.service.DiaryServiceImpl;
+import static DiaryProgram.util.MemberCommon.*;
+
+public class DiaryProgramEx {
+	public static void main(String[] args) throws Exception {
+		DiaryService ds = new DiaryServiceImpl();		
+				execute(ds);	
+	}
+	
+	
+	static void execute(DiaryService ds) throws Exception {
+		
+		while(true) {
+			try {
+				int input = nextInt("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n"
+								   +"┃1.로그인 2.회원가입 3.ID 또는 PW 찾기 4.프로그램 종료┃\n"
+								   +"┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛");
+				switch(input) {
+				case 1:
+					ds.signIn();
+					break;
+				case 2:
+					ds.signUp();
+					break;			
+				case 3:
+					ds.findAccount();
+					break;		
+				case 4:
+					System.out.println("다이어리 프로그램을 종료합니다.");
+					System.exit(0);
+				default :
+					System.out.println("정확한 번호를 입력해주세요\n");
+				} 
+			} catch(NumberFormatException e) {
+				System.out.println("정확한 번호를 입력해주세요\n");
+			}
+			
+		}
+		
+	}
+}
